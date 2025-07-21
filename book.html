@@ -2,26 +2,392 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book an Errand - Teke Errands</title>
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book errand services with Teke Errands - Nairobi's fastest delivery service">
+  <title>Book an Errand | Teke Errands</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #FF6B00;
+      --primary-dark: #E05D00;
+      --secondary: #FFD700;
+      --dark: #1A1A1A;
+      --light: #F5F5F5;
+      --gray: #6C757D;
+      --light-gray: #E9ECEF;
+      --transition: all 0.3s ease;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+      --radius: 12px;
+      --radius-sm: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background-color: #fff;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      font-weight: 600;
+      text-align: center;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.7)), url('https://images.pexels.com/photos/30661393/pexels-photo-30661393/free-photo-of-motorcyclist-in-nairobi-street-scene-with-unique-matatu-art.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+    
+    header h1 span {
+      color: var(--secondary);
+    }
+    
+    /* Booking Form */
+    .booking-section {
+      padding: 80px 0;
+    }
+    
+    .form-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    
+    .form-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .form-header h2 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .form-header p {
+      color: var(--gray);
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    
+    input, select, textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid var(--light-gray);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 16px;
+      transition: var(--transition);
+    }
+    
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 107, 0, 0.1);
+    }
+    
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    
+    .submit-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-content a {
+      color: var(--secondary);
+      transition: var(--transition);
+    }
+    
+    .footer-content a:hover {
+      opacity: 0.8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 80px 0;
+      }
+      
+      header h1 {
+        font-size: 36px;
+      }
+      
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .form-container {
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 28px;
+      }
+      
+      .form-header h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <h1 style="color: #FFD700;">Book Your Errand</h1>
+  <header>
+    <div class="container">
+      <h1>Book Your <span>Errand</span></h1>
+      <p>Fill out the form below and we'll handle the rest</p>
+    </div>
   </header>
 
-  <section style="padding: 2rem;">
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Full Name" required><br>
-      <input type="tel" name="phone" placeholder="Phone Number" required><br>
-      <input type="text" name="location" placeholder="Pickup Location" required><br>
-      <textarea name="task" placeholder="Describe the errand..." required></textarea><br>
-      <button type="submit" class="cta-btn">Submit Request</button>
-    </form>
+  <section class="booking-section">
+    <div class="container">
+      <div class="form-container">
+        <div class="form-header">
+          <h2>Errand Request Form</h2>
+          <p>Complete this form to schedule your errand. We'll contact you to confirm details.</p>
+        </div>
+        
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+254 700 000 000" required>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com">
+            </div>
+            <div class="form-group">
+              <label for="service">Service Type</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select service</option>
+                <option value="parcel">Parcel Delivery</option>
+                <option value="document">Document Courier</option>
+                <option value="shopping">Shopping Assistance</option>
+                <option value="custom">Custom Errand</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="pickup">Pickup Location</label>
+            <input type="text" id="pickup" name="pickup" placeholder="Street address, building, or landmark" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="delivery">Delivery Location (if applicable)</label>
+            <input type="text" id="delivery" name="delivery" placeholder="Street address, building, or landmark">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Preferred Date</label>
+              <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+              <label for="time">Preferred Time</label>
+              <input type="time" id="time" name="time" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="task">Errand Details</label>
+            <textarea id="task" name="task" placeholder="Please describe your errand in detail, including any special instructions..." required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Submit Request
+          </button>
+        </form>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Teke Errands</p>
+    <div class="container">
+      <div class="footer-content">
+        <a href="#"><i class="fas fa-phone"></i> +254 745594443</a>
+        <a href="#"><i class="fas fa-envelope"></i> hello@tekeerrands.ke</a>
+        <a href="#"><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</a>
+      </div>
+      <p>&copy; 2025 Teke Errands. All Rights Reserved.</p>
+    </div>
   </footer>
+
+  <script>
+    // Set minimum date to today
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    document.getElementById('date').min = `${yyyy}-${mm}-${dd}`;
+    
+    // Form submission handling
+    const form = document.querySelector('form');
+    if(form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        try {
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+          submitBtn.disabled = true;
+          
+          // Simulate form submission
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Request Sent!';
+            
+            // Show success message
+            alert('Your errand request has been submitted successfully! We will contact you shortly to confirm details.');
+            
+            // Reset form after delay
+            setTimeout(() => {
+              form.reset();
+              submitBtn.innerHTML = originalBtnText;
+              submitBtn.disabled = false;
+            }, 2000);
+          }, 1500);
+        } catch (error) {
+          submitBtn.innerHTML = '<i class="fas fa-times"></i> Error';
+          setTimeout(() => {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }, 2000);
+          console.error('Error:', error);
+        }
+      });
+    }
+    
+    // Service type change handler
+    const serviceSelect = document.getElementById('service');
+    const deliveryField = document.getElementById('delivery').parentElement;
+    
+    serviceSelect.addEventListener('change', function() {
+      if(this.value === 'shopping' || this.value === 'custom') {
+        deliveryField.style.display = 'none';
+      } else {
+        deliveryField.style.display = 'block';
+      }
+    });
+  </script>
 </body>
 </html>
