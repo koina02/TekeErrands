@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #FFFBEA; /* Soft background */
+  color: #1A1A1A;
+}
+
+header.hero {
+  background: #2E8B57; /* Fresh green */
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta-btn {
+  background: #FFD700; /* Hustle Yellow */
+  color: #1A1A1A;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #e6c200;
+}
+
+.features {
+  padding: 2rem;
+  background: #FFFFFF;
+  border-top: 4px solid #FFD700;
+}
+
+.features h2 {
+  color: #2E8B57;
+}
+
+.services-preview {
+  background: #FFFFFF;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.service-card {
+  background: #2E8B57;
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  flex: 1 1 200px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+footer {
+  background: #FFD700;
+  color: #1A1A1A;
+  text-align: center;
+  padding: 1rem;
+  font-weight: 500;
+}
